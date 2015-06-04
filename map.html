@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MAP</title>
+	<script src="bower_components/webcomponentsjs/webcomponents.min.js"></script>  
+   <link rel="import"href="bower_components/google-map/google-map.html">
+   <link rel="import"href="bower_components/paper-slider/paper-slider.html">  
+   <style>  
+     google-map {  
+       display: block;  
+       height: 600px;  
+     }  
+   </style>
+</head>
+<body>
+<template id='tmpl' bind>  
+  
+<paper-slider id='sel' min="1" max="20" value="{{zoom}}" editable></paper-slider>  
+  
+<google-map id='map' latitude="22.605153" longitude="120.301125"  
+           disableDefaultUI showCenterMarker zoom="{{zoom}}"></google-map>  
+  
+</template>
+
+<script>  
+window.addEventListener("polymer-ready",function(){  
+ document.querySelector('#tmpl').model = {  
+   zoom: 15  
+ }  
+});  
+</script>
+</body>
+</html>
